@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import AVFoundation
+
 
 final class PlayButtonTest: XCTestCase {
 
@@ -21,13 +23,31 @@ final class PlayButtonTest: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
+    func testRenderPlayButton() throws {
+        // UI tests must launch the application that they test.
+            let app = XCUIApplication()
+            app.launch()
+            
+            // Buscar el botón con el identificador "button-play"
+            let playButton = app.buttons["button-play"]
+            
+            // Verificar si el botón existe
+            XCTAssert(playButton.exists)
+            // Get the descendants of the button
+            XCTAssert(playButton.label == "Iniciar musica")
+    }
+    func testClickButton() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Presiona el botón para iniciar la reproducción de música
+        let playButton = app.buttons["Iniciar musica"]
+        playButton.tap()
+           
+        // Espera un tiempo suficiente para que el reproductor de audio se inicie
+        sleep(2) // Puedes ajustar este tiempo según sea necesario
+           
+        // Verifica si el reproductor de audio está reproduciendo música
     }
 
     func testLaunchPerformance() throws {

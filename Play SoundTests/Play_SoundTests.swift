@@ -9,9 +9,11 @@ import XCTest
 @testable import Play_Sound
 
 final class Play_SoundTests: XCTestCase {
+    var viewController: ContentView!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDownWithError() throws {
@@ -32,5 +34,8 @@ final class Play_SoundTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+        
+       
+    }
 
-}
+
